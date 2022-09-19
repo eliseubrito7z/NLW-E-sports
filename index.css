@@ -1,0 +1,168 @@
+/*resetando CSS no navegador*/
+
+* { /*resetando o CSS*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none; /*tirar o . das listas*/
+}
+
+body {
+    background-image: url(./arquivos/Fundo.jpg);
+    background-position: top center;
+    background-size: 100% auto; /*100% na horizontal e automatico na vertical*/
+    background-repeat: no-repeat;
+    background-color: #121214;
+}
+
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%; /*or 38px*/
+}
+
+header {
+    text-align: center;
+    padding-top: 32px;
+    height: calc(120px + 32px);
+}
+header div {/*Transição*/
+    transition: transform .3s ; 
+}
+header div:hover{ /*Transição*/
+    transform: scale(1.1);
+
+}
+
+header img {
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding: 4px;
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+
+main * { /*tudo que tem dentro do main*/
+    /* border: 1px solid red;*/
+
+}
+
+main {
+    max-width: 580px; /*Largura maxima dos cartões*/
+    width: 90%; /*relativo a 90% da largura da tela*/
+    margin: auto;
+
+    display: flex; /*poderia ser apenas o grid*/
+    flex-direction: column;
+    gap: 24px; /*espaço entre um bloco e outro*/
+
+    margin-top: 32px; /*espaço para a logo*/
+}
+
+section {
+    color: white;
+
+    background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%); /*para fazer a borda colorida no topo*/
+    padding-top: 4px;
+    border-radius: 10px;
+}
+
+section div { /*cores dos cartoes*/
+    background-color: #2a2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+
+}
+
+section h2 {
+/*    font-style: normal;
+    font-weight: 900;
+    font-size: 24px; */ /*navegador trouxe, não mudou quase nada, então, apaga */
+    letter-spacing: -0.47px;
+}
+
+section p {
+/*    font-weight: 400; 
+    font-size: 16px; */ /*navegador trouxe, não mudou quase nada, então, apaga */
+    letter-spacing: -0.18px; 
+    color: #a1a1aa;
+}
+
+section ul {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap; /*para quando não caber mais jogos um ao lado do outro, ir para baixo*/
+    gap: 16px; /*espaço entre as logos de canais e jogos*/
+} 
+
+.MyGames img{
+    
+    width: 90px;
+    border-radius: 8px; /*Borda arredondada*/
+}
+
+.MyCanals img {
+    border-radius: 50%;
+    border: 1px solid #443e54;
+    width: 70px;
+}
+
+section ul li{/*Transição*/
+    transition: transform .3s;
+}
+
+section ul li:hover{/*Transição*/
+    transform: scale(1.3)
+}
+
+/* animation */
+
+@keyframes fromTop{ 
+    from {
+        opacity: 0;
+        transform: translateY(-30px); /*onde começa*/
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0); /*onde termina // vai terminar onde já está*/
+    }
+}
+
+header div {
+    animation: fromTop .6s .2s backwards; /*nome do animation / tempo de exec / delay / puxar as propriedades */
+}
+
+@keyframes fromBottom {
+    from{
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0); /*onde termina // vai terminar onde já está*/
+    }
+}
+
+main section  {
+    animation: fromBottom .6s backwards;
+}
+
+main section:nth-child(1) { /*section 1*/
+    animation-delay: 0;
+}
+
+main section:nth-child(2) { /*section 2*/
+    animation-delay: .4s;
+}
+
+main section:nth-child(3) { /*section 2*/
+    animation-delay: .8s;
+}
